@@ -1,4 +1,13 @@
-docker run -itd --ipc=host \
+docker run -itd --privileged --network=host --shm-size=16g \
+--name sglang-B025 \
+-v /mnt:/mnt \
+-v /home:/home \
+-v /data:/data \
+-v /usr/local/sbin:/usr/local/sbin \
+-v /usr/local/Ascend/driver:/usr/local/Ascend/driver \
+-v /usr/local/Ascend/firmware:/usr/local/Ascend/firmware \
+-v /etc/ascend_install.info:etc/ascend_install.info \
+-v /var/queue_scheduler:/var/queue_scheduler \
 --device=/dev/davinci0 \
 --device=/dev/davinci1 \
 --device=/dev/davinci2 \
